@@ -4,10 +4,20 @@ ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libass-dev
 ENV FFMPEG_VERSION=4.2.4
 
 RUN apt-get update && \
+    apt-get -y install debian-keyring debian-archive-keyring curl lsb-release
+
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+RUN apt-get update && \
     apt-get -y install $DEV && \
     apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev && \
     apt-get -y install libx265-dev libnuma-dev && \
     apt-get -y install libasound2 libass9 libvdpau1 libva-x11-2 libva-drm2 libxcb-shm0 libxcb-xfixes0 libxcb-shape0 libvorbisenc2 libtheora0 libaribb24-dev && \
+    apt-get -y install docker-ce-cli && \
 \
 #ffmpeg build
     mkdir /tmp/ffmpeg_sources && \
