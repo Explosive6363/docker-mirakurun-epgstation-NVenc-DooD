@@ -1,11 +1,9 @@
 # docker-mirakurun-epgstation
-
-### テキトウな構成図
 [Mirakurun](https://github.com/Chinachu/Mirakurun) + [EPGStation](https://github.com/l3tnun/EPGStation) の Docker コンテナ
 
 > **Warning**  
 >  Forkの追加事項  
-
+### テキトウな構成図
 ![Build Server](https://user-images.githubusercontent.com/49982049/207947352-4e5c426c-718f-4342-a255-e2058b713f93.jpeg)
 
 
