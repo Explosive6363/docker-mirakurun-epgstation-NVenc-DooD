@@ -10,6 +10,9 @@
 
 
 ## マストでやらなければいけないこと
+### nvidia-dockerの導入
+[ドキュメント - Nvidia](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)を読んで導入してください。
+
 ### pathの変更
 `epgstation/config/enc_nvenc.sh`の`${FULL_PATH}`の部分を`/app/recorded`のマウント元のフルパスに置き換えてください。  
 私の環境では `/home/possive/docker-mirakurun-epgstation-NVenc-DooD/recorded`に書き換えました。
