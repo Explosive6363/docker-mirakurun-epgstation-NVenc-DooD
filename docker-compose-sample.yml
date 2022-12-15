@@ -52,6 +52,7 @@ services:
             - ./epgstation/thumbnail:/app/thumbnail
             - ./epgstation/logs:/app/logs
             - ./recorded:/app/recorded
+            - /var/run/docker.sock:/var/run/docker.sock
         environment:
             TZ: "Asia/Tokyo"
         depends_on:
@@ -64,6 +65,7 @@ services:
 #         devices:
 #             - /dev/dri:/dev/dri
         restart: always
+        privileged: true
 
 volumes:
     mysql-db:
